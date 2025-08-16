@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DG PMMODS - Loja de Viaturas</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #121212;
+      color: #fff;
+    }
+    header img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .container {
+      display: flex;
+      flex-direction: row;
+    }
+    .content {
+      flex: 3;
+      padding: 20px;
+    }
+    .sidebar {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 8px 0 0 8px;
+    }
+    .sidebar a {
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+    .sidebar a img {
+      width: 60px;
+      transition: transform 0.3s;
+    }
+    .sidebar a img:hover {
+      transform: scale(1.1);
+    }
+    .category {
+      margin-bottom: 50px;
+    }
+    .category h2 {
+      color: #FFAC73;
+      font-size: 1.8rem;
+      border-left: 6px solid #FFAC73;
+      padding-left: 10px;
+      margin-bottom: 20px;
+    }
+    .product {
+      background: #1e1e1e;
+      border: 2px solid #FFAC73;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .product:hover {
+      transform: scale(1.02);
+      box-shadow: 0px 0px 20px rgba(255, 172, 115, 0.7);
+    }
+    .product img {
+      width: 100%;
+      max-width: 480px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .product h3 {
+      color: #FFAC73;
+      margin-bottom: 10px;
+    }
+    .exclusive, .new {
+      background: #FFAC73;
+      color: #000;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 15px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .exclusive:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(255,172,115,0.7);
+    }
+    .new {
+      background: #00c853;
+      color: #fff;
+    }
+    .new:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(0,200,83,0.7);
+    }
+    .btn-vermais {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 10px;
+      background: #FFAC73;
+      color: #000;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: none;
+    }
+    .btn-vermais:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(255,172,115,0.7);
+    }
+    .extra-photos {
+      display: none;
+      margin-top: 15px;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .extra-photos img {
+      width: 100%;
+      max-width: 480px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="img/Dg PMMODS™.jpg" alt="DG PMMODS Banner">
+  </header>
+
+  <div class="container">
+    <div class="content">
+      <!-- CATEGORIA EXCLUSIVAS -->
+      <div class="category">
+        <h2>🚔 Exclusivas</h2>
+
+        <div class="product">
+          <img src="img/versapmerj.png" alt="Nissan Versa PMERJ">
+          <h3>Nissan Versa PMERJ</h3>
+          <span class="exclusive">EXCLUSIVO</span>
+        </div>
+
+        <div class="product">
+          <img src="img/dusterpmpr.png" alt="Duster PMPR">
+          <h3>Duster PMPR</h3>
+          <span class="exclusive">EXCLUSIVO</span>
+        </div>
+      </div>
+
+      <!-- CATEGORIA NOVIDADES -->
+      <div class="category">
+        <h2>✨ Novidades</h2>
+
+        <div class="product">
+          <img src="img/fiattitanorj.png" alt="Fiat Titano PMERJ">
+          <h3>Fiat Titano PMERJ</h3>
+          <span class="new">LANÇAMENTO</span>
+          <button class="btn-vermais" onclick="togglePhotos()">Ver Mais</button>
+          <div class="extra-photos" id="extraPhotos">
+            <img src="img/fiattitano1.png" alt="Fiat Titano PMERJ 1">
+            <img src="img/fiattitano2.png" alt="Fiat Titano PMERJ 2">
+            <img src="img/fiattitano3.png" alt="Fiat Titano PMERJ 3">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR DISCORD -->
+    <div class="sidebar">
+      <a href="https://discord.gg/nsqWMvJ32a" target="_blank">
+        <img src="img/discordlogo.png" alt="Discord DG PMMODS">
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function togglePhotos() {
+      const extra = document.getElementById('extraPhotos');
+      if(extra.style.display === 'block'){
+        extra.style.display = 'none';
+      } else {
+        extra.style.display = 'block';
+        extra.style.opacity = 0;
+        setTimeout(() => { extra.style.opacity = 1; }, 50);
+      }
+    }
+  </script>
+</body>
+</html>
